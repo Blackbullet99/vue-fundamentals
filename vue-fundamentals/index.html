@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VueJs Course</title>
+    <link rel="stylesheet" type="text/css" href="./main.css" />
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <p>{{ fullName }}</p>
+      <p><a :href="url" target="_blank">Youtube</a></p>
+      <p v-html="raw_url"></p>
+      <p>{{ age }}</p>
+      <hr />
+
+      <label>First Name</label>
+      <input type="text" v-model.lazy.trim="firstName" />
+
+      <label>Middle Name</label>
+      <input type="text" @keyup.enter="updateMiddleName" />
+
+      <label>Last Name</label>
+      <input
+        type="text"
+        :value="lastName"
+        @input.prevent="updateLastName('last name was triggered!', $event)"
+      />
+
+      <label>Age</label>
+      <input type="number" v-model.number="age" />
+
+      <button type="button" @click="increment">Increment</button>
+      <button type="button" @click="age--">Decrement</button>
+
+      <p v-if="mode == 1">Showing v-if directive content</p>
+      <template v-else-if="mode == 2">
+        <h3>Bonus content</h3>
+        <p>Showing v-else-if directive content</p>
+      </template>
+      <p v-else>Showing v-else directive content</p>
+
+      <i v-show="mode == 1">v-show</i>
+
+      <select v-model="mode">
+        <option value="1">v-if</option>
+        <option value="2">v-else-if</option>
+        <option value="3">v-else</option>
+      </select>
+
+      <ul>
+        <li v-for="(bird, index) in birds" :class="bird" :key="bird">
+          {{ bird }} - {{ index }}
+         </li>
+      </ul>
+
+      <hr />
+
+      <ul>
+        <li v-for="person in people" :key="person">
+          <div v-for="(value, key, index) in person">
+            {{ key }}: {{ value }} - index: {{ index }}
+          </div>
+         </li>
+    </div>
+
+    <!-- <div id="app2">
+      {{ firstName }} {{ lastName }}
+    </div> -->
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
