@@ -3,42 +3,42 @@
 const vm = Vue.createApp({
   data() {
     return {
-      //   firstName: "John",
-      //   middleName: "",
-      //   lastName: "Doe",
-      //   url: "https://www.youtube.com/",
-      //   raw_url: '<a href="https://www.youtube.com/" target="_blank">Youtube</a>',
-      //   age: 30,
+      firstName: "John",
+      middleName: "",
+      lastName: "Doe",
+      url: "https://www.youtube.com/",
+      raw_url: '<a href="https://www.youtube.com/" target="_blank">Youtube</a>',
+      age: 30,
       mode: 1,
       birds: ["Eagle", "Owl", "Parrot", "Dove"],
       people: [
-        {name: 'John', age: 20},
-        {name: 'Jane', age: 30},
-        {name: 'Jack', age: 40},
-      ]
+        { name: "John", age: 20 },
+        { name: "Jane", age: 30 },
+        { name: "Jack", age: 40 },
+      ],
     };
   },
-  //   methods: {
-  //     //category
-  //     increment() {
-  //       this.age++;
-  //     },
-  //     updateLastName(msg, e) {
-  //       console.log(msg);
-  //       this.lastName = e.target.value;
-  //     },
-  //     updateMiddleName(e) {
-  //       this.middleName = e.target.value;
-  //     },
-  //   },
-  //   computed: {
-  //     //category
-  //     fullName() {
-  //       return `${this.firstName} ${
-  //         this.middleName
-  //       } ${this.lastName.toUpperCase()}`;
-  //     },
-  //   },
+  methods: {
+    //category
+    increment() {
+      this.age++;
+    },
+    updateLastName(msg, e) {
+      console.log(msg);
+      this.lastName = e.target.value;
+    },
+    updateMiddleName(e) {
+      this.middleName = e.target.value;
+    },
+  },
+  computed: {
+    //category
+    fullName() {
+      return `${this.firstName} ${
+        this.middleName
+      } ${this.lastName.toUpperCase()}`;
+    },
+  },
 }).mount("#app");
 
 // methods: can define functions for our Vue instance or application
